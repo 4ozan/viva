@@ -41,7 +41,7 @@ const FeaturesSection: React.FC = () => {
     <section className="bg-gradient-to-b from-green-800 to-green-900 py-16 px-4 sm:px-6 lg:px-8 text-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Made for your Startup's Growth</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Made for your Startup&apos;s Growth</h2>
           <p className="text-xl text-green-200 max-w-2xl mx-auto">
             The most important technologies that define startups and drive their success.
           </p>
