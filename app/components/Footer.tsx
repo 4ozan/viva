@@ -55,9 +55,8 @@ const Footer: React.FC = () => {
           </div>
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Contact Us</h3>
-            <p>Accra</p>
             <p>Accra, Ghana</p>
-            <p>contact@viva.com</p>
+            <p>info@viva.com</p>
           </div>
         </div>
         <div className="mt-8 pt-8 border-t border-gray-700 text-center text-sm text-gray-400">

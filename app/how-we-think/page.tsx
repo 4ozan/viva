@@ -10,7 +10,7 @@ const thoughtPosts = [
     excerpt: "We believe in building businesses that not only scale quickly but maintain their momentum for years to come.",
     date: "July 15, 2023",
     author: "Jane Smith",
-    image: "/thought-1.jpg",
+    image: "https://images.unsplash.com/photo-1518186285589-2f7649de83e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
     category: "Philosophy"
   },
   {
@@ -19,7 +19,7 @@ const thoughtPosts = [
     excerpt: "How we're reimagining workplace dynamics in an increasingly digital-first world.",
     date: "June 28, 2023",
     author: "John Davis",
-    image: "/thought-2.jpg",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
     category: "Innovation"
   },
   {
@@ -28,7 +28,7 @@ const thoughtPosts = [
     excerpt: "Intentional culture building is at the core of every successful organization. Here's our perspective.",
     date: "June 10, 2023",
     author: "Michael Johnson",
-    image: "/thought-3.jpg",
+    image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
     category: "Culture"
   },
   {
@@ -37,7 +37,7 @@ const thoughtPosts = [
     excerpt: "Our belief in the role technology plays in solving fundamental business challenges.",
     date: "May 22, 2023",
     author: "Sarah Williams",
-    image: "/thought-4.jpg",
+    image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80",
     category: "Technology"
   }
 ];
@@ -84,7 +84,11 @@ export default function HowWeThink() {
                     <span>{post.date}</span>
                     <div className="flex items-center">
                       <div className="w-8 h-8 bg-black/30 rounded-full mr-2 overflow-hidden">
-                        <img src={`/authors/${post.author.replace(/\s/g, '-').toLowerCase()}.jpg`} alt={post.author} className="w-full h-full object-cover" />
+                        <img 
+                          src={`https://ui-avatars.com/api/?name=${post.author.replace(/\s/g, '+')}&background=random&color=fff`} 
+                          alt={post.author} 
+                          className="w-full h-full object-cover" 
+                        />
                       </div>
                       <span>By {post.author}</span>
                     </div>

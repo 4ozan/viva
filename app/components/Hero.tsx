@@ -156,7 +156,14 @@ export default function HeroGeometric({
             animate="visible"
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
           >
-            <Image src="https://kokonutui.com/logo.svg" alt="Kokonut UI" width={20} height={20} />
+            <svg 
+              className="w-5 h-5 text-white" 
+              fill="currentColor" 
+              viewBox="0 0 20 20" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"></path>
+            </svg>
             <span className="text-sm text-white/60 tracking-wide">{badge}</span>
           </motion.div>
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
@@ -177,7 +184,12 @@ export default function HeroGeometric({
             </p>
           </motion.div>
           <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">
-            <a href="#" className="inline-flex items-center px-6 py-3 bg-black/40 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-black/60 transition-all duration-300 font-medium">
+            <a 
+              href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="inline-flex items-center px-6 py-3 bg-black/40 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-black/60 transition-all duration-300 font-medium"
+            >
               <svg className="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
