@@ -17,15 +17,29 @@ const Header: React.FC = () => {
       <div className="relative z-10 container mx-auto px-4 py-3">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Image src="/vivap.png" alt="Vivap Logo" width={65} height={65} />
+            <Link href="/">
+              <Image src="/vivap.png" alt="Vivap Logo" width={65} height={65} />
+            </Link>
             <span className="ml-2 text-xl font-bold text-white"></span>
           </div>
           
-          <nav className="hidden md:flex space-x-6">
-            <NavLink href="#how-we-think">How we think</NavLink>
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#contact-us">Contact Us</NavLink>
-          </nav>
+          <div className="hidden md:flex items-center">
+            <nav className="flex space-x-6 mr-6">
+              <NavLink href="/about">About Us</NavLink>
+              <NavLink href="/how-we-think">How We Think</NavLink>
+              <NavLink href="/services">Services</NavLink>
+              <NavLink href="/contact">Contact Us</NavLink>
+            </nav>
+            
+            <a 
+              href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="px-4 py-2 bg-black/40 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-black/60 transition-all duration-300 text-sm font-medium"
+            >
+              Book Appointment
+            </a>
+          </div>
           
           <button 
             className="md:hidden focus:outline-none" 
@@ -44,9 +58,18 @@ const Header: React.FC = () => {
         
         {isMenuOpen && (
           <nav className="mt-4 md:hidden">
-            <NavLink href="#how-we-think" mobile>How we think</NavLink>
-            <NavLink href="#services" mobile>Services</NavLink>
-            <NavLink href="#contact-us" mobile>Contact Us</NavLink>
+            <NavLink href="/about" mobile>About Us</NavLink>
+            <NavLink href="/how-we-think" mobile>How We Think</NavLink>
+            <NavLink href="/services" mobile>Services</NavLink>
+            <NavLink href="/contact" mobile>Contact Us</NavLink>
+            <a 
+              href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block py-2 mt-2 text-white hover:text-gray-200 transition duration-300"
+            >
+              Book Appointment
+            </a>
           </nav>
         )}
       </div>

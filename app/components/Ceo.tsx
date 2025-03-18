@@ -1,5 +1,6 @@
 import type React from "react"
 import Image from "next/image"
+import Picture from '../../public/ceo.jpg'
 
 const Ceo: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Ceo: React.FC = () => {
         <div className="flex flex-col items-center">
           <div className="mb-8 relative">
             <Image
-              src="/ceo-placeholder.jpg"
+              src={Picture}
               alt="Frank Tetteh"
               width={120}
               height={120}

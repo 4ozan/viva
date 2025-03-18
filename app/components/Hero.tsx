@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Pacifico } from "next/font/google"
 import Image from "next/image"
 import { cn } from "@/app/lib/utils"
+import Picture from '../../public/WhatsApp Image 2024-09-15 at 06.19.50_472a4437.jpg'
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -127,10 +128,8 @@ export default function HeroGeometric({
           width={300}
           height={80}
           rotate={-8}
-          gradient="from-violet-500/[0.15]"
           className="left-[5%] md:left-[10%] bottom-[5%] md:bottom-[10%]"
         />
-
         <ElegantShape
           delay={0.6}
           width={200}
@@ -139,7 +138,6 @@ export default function HeroGeometric({
           gradient="from-amber-500/[0.15]"
           className="right-[15%] md:right-[20%] top-[10%] md:top-[15%]"
         />
-
         <ElegantShape
           delay={0.7}
           width={150}
@@ -149,7 +147,6 @@ export default function HeroGeometric({
           className="left-[20%] md:left-[25%] top-[5%] md:top-[10%]"
         />
       </div>
-
       <div className="relative z-10 container mx-auto px-4 md:px-6">
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
@@ -162,26 +159,30 @@ export default function HeroGeometric({
             <Image src="https://kokonutui.com/logo.svg" alt="Kokonut UI" width={20} height={20} />
             <span className="text-sm text-white/60 tracking-wide">{badge}</span>
           </motion.div>
-
           <motion.div custom={1} variants={fadeUpVariants} initial="hidden" animate="visible">
             <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 md:mb-8 tracking-tight">
               <span className="bg-clip-text text-transparent bg-gradient-to-b from-white to-white/80">{title1}</span>
               <br />
-              <span
-                className={cn(
-                  "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300 ",
-                  pacifico.className,
-                )}
-              >
+              <span className={cn(
+                "bg-clip-text text-transparent bg-gradient-to-r from-indigo-300 via-white/90 to-rose-300",
+                pacifico.className
+              )}>
                 {title2}
               </span>
             </h1>
           </motion.div>
-
           <motion.div custom={2} variants={fadeUpVariants} initial="hidden" animate="visible">
             <p className="text-base sm:text-lg md:text-xl text-white/40 mb-8 leading-relaxed font-light tracking-wide max-w-xl mx-auto px-4">
-              Crafting exceptional startup  growth through innovative design and cutting-edge technology.
+              Crafting exceptional startup growth through innovative design and cutting-edge technology.
             </p>
+          </motion.div>
+          <motion.div custom={3} variants={fadeUpVariants} initial="hidden" animate="visible">
+            <a href="#" className="inline-flex items-center px-6 py-3 bg-black/40 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-black/60 transition-all duration-300 font-medium">
+              <svg className="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Book a Strategy Session
+            </a>
           </motion.div>
         </div>
       </div>
@@ -190,26 +191,3 @@ export default function HeroGeometric({
     </div>
   )
 }
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import '../components/styles/Hero.css';
-
-// const Hero: React.FC = () => {
-//   return (
-//     <section className="hero bg-green-900 text-white p-12 text-center" id="hero">
-//       <h1 className="text-4xl font-bold">Startup Intelligence built for startup growth</h1>
-//       <p className="mt-4">Clear the path from building to growth together</p>
-//       <a href="#learn-more" className="cta-button">LEARN MORE</a>
-//     </section>
-//   );
-// };
-
-// export default Hero;
