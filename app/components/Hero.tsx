@@ -2,9 +2,11 @@
 
 import { motion } from "framer-motion"
 import { Pacifico } from "next/font/google"
-import Image from "next/image"
 import { cn } from "@/app/lib/utils"
-import Picture from '../../public/WhatsApp Image 2024-09-15 at 06.19.50_472a4437.jpg'
+import dynamic from 'next/dynamic'
+
+// Import the 3D scene with dynamic loading to prevent server-side rendering issues
+const Scene3D = dynamic(() => import('./3d/Scene3D'), { ssr: false })
 
 const pacifico = Pacifico({
   subsets: ["latin"],
@@ -102,6 +104,11 @@ export default function HeroGeometric({
 
   return (
     <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-green-300 pt-20">
+      {/* 3D Background scene */}
+      <div className="absolute inset-0 z-0 opacity-50">
+        <Scene3D className="w-full h-full" />
+      </div>
+      
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] blur-3xl" />
 
       <div className="absolute inset-0 overflow-hidden">
@@ -154,7 +161,7 @@ export default function HeroGeometric({
             variants={fadeUpVariants}
             initial="hidden"
             animate="visible"
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] mb-8 md:mb-12"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.03] backdrop-blur-md border border-white/[0.08] mb-8 md:mb-12"
           >
             <svg 
               className="w-5 h-5 text-white" 
