@@ -1,73 +1,9 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "../../components/ui/button"
-import { Input } from "../../components/ui/input"
-import { ArrowRight } from "lucide-react"
-import Link from "next/link"
-import { useState } from "react"
-import { useToast } from "../../hooks/use-toast"
-
 import Image from "next/image"
 
-interface HeroProps {
-  signupCount: number
-}
-
-export function Hero({ signupCount }: HeroProps) {
-  const [email, setEmail] = useState("")
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const { toast } = useToast()
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (!email.trim()) {
-      toast({
-        title: "Email required",
-        description: "Please enter your email address.",
-        variant: "destructive",
-      })
-      return
-    }
-
-    setIsSubmitting(true)
-
-    try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: email.trim() }),
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        toast({
-          title: "Welcome to the waitlist! 🎉",
-          description: "You'll be notified when we launch.",
-        })
-        setEmail("")
-      } else {
-        toast({
-          title: "Oops!",
-          description: data.error || "Something went wrong. Please try again.",
-          variant: "destructive",
-        })
-      }
-    } catch (error) {
-      toast({
-        title: "Network error",
-        description: "Please check your connection and try again.",
-        variant: "destructive",
-      })
-    } finally {
-      setIsSubmitting(false)
-    }
-  }
-
+export function Hero() {
   return (
     <div className="relative min-h-[calc(100vh-4.5rem)] supports-[height:100dvh]:min-h-[calc(100dvh-4.5rem)] flex flex-col justify-between items-center text-center px-4 overflow-hidden">
       <Image

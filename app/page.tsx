@@ -10,7 +10,7 @@ export default function Home() {
    <>
      <Header />
       <main>
-        <Hero signupCount={0} />
+        <Hero />
       </main>
       <Footer />
    

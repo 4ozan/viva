@@ -1,10 +1,9 @@
 'use client'
 
 import React from 'react';
-import Header from '../components/Header';
+import { Header } from '../components/Header';
 import Footer from '../components/Footer';
 import ScrollReveal from '../components/ScrollReveal';
-import dynamic from 'next/dynamic';
 
 export default function About() {
   return (

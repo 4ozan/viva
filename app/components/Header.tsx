@@ -4,26 +4,8 @@ import Link from "next/link"
 import { Button } from "../../components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { HeaderBase } from "./header-base"
-import { getStars } from "../lib/fetchGhStars"
-import { useEffect, useState } from "react"
-import Image from "next/image"
 
 export function Header() {
-  const [star, setStar] = useState<string>("")
-
-  useEffect(() => {
-    const fetchStars = async () => {
-      try {
-        const data = await getStars()
-        setStar(data)
-      } catch (err) {
-        console.error("Failed to fetch GitHub stars", err)
-      }
-    }
-
-    fetchStars()
-  }, [])
-
   const leftContent = (
     <Link href="/" className="flex items-center gap-3 text-white">
       {/* <Image src="/logo.svg" alt="Logo" width={32} height={32} /> */}
@@ -34,7 +16,7 @@ export function Header() {
   const rightContent = (
     <nav className="flex items-center gap-3 text-white">
       <Link href="#">
-        <Button variant="text" className="text-sm p-0 text-white">
+        <Button variant="ghost" className="text-sm p-0 text-white">
           Projects
         </Button>
       </Link>
