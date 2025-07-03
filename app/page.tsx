@@ -8,12 +8,12 @@ import Footer from './components/Footer';
 export default function Home() {
   return (
    <>
-     <Header />
+
+   <Header />
       <main>
         <Hero />
       </main>
       <Footer />
-   
    </>
   
   );

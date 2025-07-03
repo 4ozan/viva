@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8" id="contact">
+    <footer className="bg-black rounded-xl opcaity-5 text-white py-12 px-4 sm:px-6 lg:px-8" id="contact">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">

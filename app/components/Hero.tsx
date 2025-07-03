@@ -1,18 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Image from "next/image"
 
 export function Hero() {
   return (
     <div className="relative min-h-[calc(100vh-4.5rem)] supports-[height:100dvh]:min-h-[calc(100dvh-4.5rem)] flex flex-col justify-between items-center text-center px-4 overflow-hidden">
-      <Image
-        src="/bg.png"
-        alt="Background"
-        fill
-        className="absolute inset-0 -z-10 object-cover w-full h-full"
-        priority
-      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

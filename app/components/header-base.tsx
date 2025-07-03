@@ -9,7 +9,8 @@ interface HeaderBaseProps {
 
 export function HeaderBase({ leftContent, rightContent, className }: HeaderBaseProps) {
   return (
-    <header className={`flex items-center justify-between w-full h-16 ${className || ""}`}>
+    <header className={`flex items-center justify-between w-full h-16 ${className || ""}
+    `}>
       <div>{leftContent}</div>
       <div>{rightContent}</div>
     </header>
