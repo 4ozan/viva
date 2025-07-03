@@ -69,13 +69,13 @@ export function Hero({ signupCount }: HeroProps) {
   }
 
   return (
-    <div className="min-h-[calc(100vh-4.5rem)] supports-[height:100dvh]:min-h-[calc(100dvh-4.5rem)] flex flex-col justify-between items-center text-center px-4">
+    <div className="relative min-h-[calc(100vh-4.5rem)] supports-[height:100dvh]:min-h-[calc(100dvh-4.5rem)] flex flex-col justify-between items-center text-center px-4 overflow-hidden">
       <Image
-        className="absolute top-0 left-0 -z-50 size-full object-cover"
-        src="/landing-page-bg.png"
-        height={1903.5}
-        width={1269}
-        alt="landing-page.bg"
+        src="/bg.png"
+        alt="Background"
+        fill
+        className="absolute inset-0 -z-10 object-cover w-full h-full"
+        priority
       />
       <motion.div
         initial={{ opacity: 0 }}
@@ -87,72 +87,24 @@ export function Hero({ signupCount }: HeroProps) {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="inline-block font-bold tracking-tighter text-4xl md:text-[4rem]"
+          className="w-full flex flex-col items-center justify-center"
         >
-          <h1>Build Startups Faster</h1>
-          <div className="flex justify-center gap-4 leading-[4rem] mt-0 md:mt-2">
-            <div className="relative -rotate-[2.76deg] max-w-[250px] md:max-w-[454px] mt-2">
-              <Image src="/frame.svg" height={79} width={459} alt="frame" />
-              <span className="absolute inset-0 flex items-center justify-center">
-                Launch. Grow. Succeed.
-              </span>
-            </div>
+          <h1 className="font-bold tracking-tighter text-4xl md:text-6xl lg:text-7xl text-center mb-4 md:mb-6 text-white">Build Startups Faster</h1>
+          <div className="w-full flex justify-center">
+            <span className="text-lg md:text-2xl font-medium text-white bg-black/40 rounded-lg px-4 py-2 shadow-md">
+              Launch. Grow. Succeed.
+            </span>
           </div>
         </motion.div>
 
         <motion.p
-          className="mt-10 text-base sm:text-xl text-muted-foreground font-light tracking-wide max-w-xl mx-auto"
+          className="mt-10 text-base sm:text-xl text-white font-light tracking-wide max-w-xl mx-auto"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4, duration: 0.8 }}
         >
           The fastest way to launch, grow, and scale your startup. Tools, resources, and support for founders who want to move fast.
         </motion.p>
-
-        <motion.div
-          className="mt-12 flex gap-8 justify-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-        >
-          <form
-            onSubmit={handleSubmit}
-            className="flex gap-3 w-full max-w-lg flex-col sm:flex-row"
-          >
-            <Input
-              type="email"
-              placeholder="Enter your email"
-              className="h-11 text-base flex-1"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              disabled={isSubmitting}
-              required
-            />
-            <Button
-              type="submit"
-              size="lg"
-              className="px-6 h-11 text-base"
-              disabled={isSubmitting}
-            >
-              <span className="relative z-10">
-                {isSubmitting ? "Joining..." : "Join waitlist"}
-              </span>
-              <ArrowRight className="relative z-10 ml-0.5 h-4 w-4 inline-block" />
-            </Button>
-          </form>
-        </motion.div>
-
-        {signupCount > 0 && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8, duration: 0.6 }}
-            className="mt-8 inline-flex items-center gap-2 text-sm text-muted-foreground justify-center"
-          >
-            <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span>{signupCount.toLocaleString()} people already joined</span>
-          </motion.div>
-        )}
       </motion.div>
     </div>
   )
