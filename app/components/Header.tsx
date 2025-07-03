@@ -16,14 +16,14 @@ export function Header() {
   const rightContent = (
     <nav className="flex items-center gap-3">
       <Link href="#">
-        <Button variant="ghost" className="text-sm p-0 text-white">
+        <Button variant="ghost" className="text-sm px-4 py-2 text-white rounded-full hover:bg-white hover:text-black transition-colors duration-200">
           Projects
         </Button>
       </Link>
       <Link href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" target="_blank">
-        <Button size="sm" className="text-sm ml-4 bg-white text-black border border-white hover:bg-gray-100">
+        <Button size="sm" className="text-sm ml-4 bg-white text-black border border-white hover:bg-gray-100 group">
           Book a demo
-          <ArrowRight className="h-4 w-4 text-black" />
+          <ArrowRight className="h-4 w-4 text-black transition-transform duration-200 group-hover:translate-x-1" />
         </Button>
       </Link>
     </nav>
