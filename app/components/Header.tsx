@@ -1,95 +1,60 @@
 "use client"
 
-import type React from "react"
-import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
+import { Button } from "../../components/ui/button"
+import { ArrowRight } from "lucide-react"
+import { HeaderBase } from "./header-base"
+import { getStars } from "../lib/fetchGhStars"
+import { useEffect, useState } from "react"
+import Image from "next/image"
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  
+export function Header() {
+  const [star, setStar] = useState<string>("")
+
+  useEffect(() => {
+    const fetchStars = async () => {
+      try {
+        const data = await getStars()
+        setStar(data)
+      } catch (err) {
+        console.error("Failed to fetch GitHub stars", err)
+      }
+    }
+
+    fetchStars()
+  }, [])
+
+  const leftContent = (
+    <Link href="/" className="flex items-center gap-3">
+      <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+      <span className="text-xl font-medium hidden md:block">Viva</span>
+    </Link>
+  )
+
+  const rightContent = (
+    <nav className="flex items-center gap-3">
+      <Link href="/contributors">
+        <Button variant="text" className="text-sm p-0">
+          Contributors
+        </Button>
+      </Link>
+      <Link href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" target="_blank">
+        <Button size="sm" className="text-sm ml-4">
+          Book a demo
+          <ArrowRight className="h-4 w-4" />
+        </Button>
+      </Link>
+    </nav>
+  )
+
   return (
-    <header className="fixed w-full top-0 z-50">
-      {/* Background div with subtle transparency */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/[0.05] via-transparent to-rose-500/[0.05] backdrop-blur-sm" />
-      
-      {/* Header content */}
-      <div className="relative z-10 container mx-auto px-4 py-3">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <Link href="/">
-              <Image src="/vivap.png" alt="Vivap Logo" width={65} height={65} />
-            </Link>
-            <span className="ml-2 text-xl font-bold text-white"></span>
-          </div>
-          
-          <div className="hidden md:flex items-center">
-            <nav className="flex space-x-6 mr-6">
-              <NavLink href="/about">About Us</NavLink>
-              <NavLink href="/how-we-think">How We Think</NavLink>
-              <NavLink href="/services">Services</NavLink>
-              <NavLink href="/contact">Contact Us</NavLink>
-            </nav>
-            
-            <a 
-              href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="px-4 py-2 bg-black/40 backdrop-blur-sm border border-white/20 text-white rounded-lg hover:bg-black/60 transition-all duration-300 text-sm font-medium"
-            >
-              Book Appointment
-            </a>
-          </div>
-          
-          <button 
-            className="md:hidden focus:outline-none" 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-              />
-            </svg>
-          </button>
-        </div>
-        
-        {isMenuOpen && (
-          <nav className="mt-4 md:hidden">
-            <NavLink href="/about" mobile>About Us</NavLink>
-            <NavLink href="/how-we-think" mobile>How We Think</NavLink>
-            <NavLink href="/services" mobile>Services</NavLink>
-            <NavLink href="/contact" mobile>Contact Us</NavLink>
-            <a 
-              href="https://appt.link/meet-with-viiva-tech-OwUwCKG2" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="block py-2 mt-2 text-white hover:text-gray-200 transition duration-300"
-            >
-              Book Appointment
-            </a>
-          </nav>
-        )}
-      </div>
-    </header>
+    <div className="mx-4 md:mx-0">
+      <HeaderBase
+        className="bg-accent border rounded-2xl max-w-3xl mx-auto mt-4 pl-4 pr-[14px]"
+        leftContent={leftContent}
+        rightContent={rightContent}
+      />
+    </div>
   )
 }
-
-// Update the NavLink component to use white text
-const NavLink: React.FC<{ href: string; children: React.ReactNode; mobile?: boolean }> = ({
-  href,
-  children,
-  mobile,
-}) => (
-  <Link
-    href={href}
-    className={`text-white hover:text-gray-200 transition duration-300 ${mobile ? "block py-2" : ""}`}
-  >
-    {children}
-  </Link>
-)
-
-export default Header
 
